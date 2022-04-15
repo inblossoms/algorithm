@@ -1,0 +1,22 @@
+{
+  "name": "mark-allen-weiss",
+  "version": "1.0.0",
+  "description": "Learn about data algorithms and structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEIYA-yl/DataStructure-Algorithm.git"
+  },
+  "keywords": [
+    "yl.0080"
+  ],
+  "author": "MEIYA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MEIYA-yl/DataStructure-Algorithm/issues"
+  },
+  "homepage": "https://github.com/MEIYA-yl/DataStructure-Algorithm#readme"
+}
