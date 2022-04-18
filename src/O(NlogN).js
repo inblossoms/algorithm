@@ -38,6 +38,70 @@ let arr = [3, 5, 6, 7, 8, 9];
  */
 
 
+// 题目二：逆序问题  在一个数组中，左边的数如果比右边的数大，则这两个数构成一个逆序对，请打印所有逆序对。
+/**
+ * 题解： 
+ * 	与求小和的思路相反，求右组中所有比左组当前值小的数组成的逆序对
+ */
 
-// 题目二：逆序问题
-// 在一个数组中，左边的数如果比右边的数大，则这两个数构成一个逆序对，请打印所有逆序对。
+
+// 快排
+/**
+ * 在1.0和2.0版本：时间：O(N^2)     空间：O(N)
+ * 3.0版本：通过随机获取值与末位进行交换做排序
+ * 	利用随机事件转换为概率事件(每一种情况的概率为N/1，进行概率累加)这样 在数学中的长期期望中复杂度就降为了 O(N*logN)  空间：O(logN)
+ */
+
+// 问题：荷兰国旗问题
+/**
+ * 给定一个数组arr，和一个数num，请把小于等于num的数放在数组的左边，大于num的
+ * 数放在数组的右边，相等的放在数组中间。要求额外空间复杂度O(1)，事件复杂度O(N)。
+ * 
+ * 题解：
+ * 1. [i] < num, [i]和小于区的下一个值进行交换，小于右阔当前索引加一
+ * 2. [i] == num , 当前索引加一，其他保持不变
+ * 3. [i] > num ,[i]和大于区前一个交换，大于区左阔，当前索引不变
+ */
+
+function sort(arr) {
+	if (arr == null || arr.length == 2) return
+	quickSort(arr, 0, arr.length - 1)
+}
+
+function quickSort(arr, l, r) {
+	if (l < r) {
+		swap(arr, l + (Math.random() * (r - l + 1)), r)
+		let p = partition(arr, l, r)
+		quickSort(arr, l, p[0] - 1) // 小于区域的右边界
+		quickSort(arr, p[1] + 1, r) // 大于区域的左边界
+	}
+}
+
+/**
+ * partition 处理arr[l ... r] 的函数
+ * 默认以arr[r]做划分，arr[r]
+ * 返回等于区域（左边界，右边界），所以返回一个长度为2的数组res,res[0] res[1]
+ */
+function partition(arr, l, r) {
+	let less = l - 1// 小于区右边界
+	let more = r // 大于区左边界
+
+	while (l < more) {// 表示当前数的位置 arr[r] --> 划分值
+		if (arr[l] < arr[r]) { // 当前数 < 划分值
+			swap(arr, ++less, l++)
+		} else if (arr[l] > arr[r]) { // 当前数 > 划分值
+			swap(arr, --more, l)
+		} else {
+			l++
+		}
+	}
+	swap(arr, more, r)
+	return [{ L: less + 1, M: more }]
+}
+
+function swap(arr, i, j) {
+	arr[i] = arr[i] ^ arr[j]
+	arr[j] = arr[i] ^ arr[j]
+	arr[i] = arr[i] ^ arr[j]
+	return arr
+}
