@@ -61,7 +61,7 @@ function maxProfit(prices) {
 
     // 0~i 上，只进行一次交易并且扣除下一次交易的买入获取的最好收益
     // 可能性一: 扣除下一次交易的买入，不在 i 的位置发生，（0~i-1) 也就是上一步的doneOnceMinusBuyMax
-    // 可能性二：扣除下一次交易的买入，在 i 的位置发生，（0~i) 也就是上最好的交易 ：prices[i]
+    // 可能性二：扣除下一次交易的买入，在 i 的位置发生，（0~i) 也就是在该范围上最好的交易 - 最后一次报价prices[i]
     doneOnceMinusBuyMax = Math.max(doneOnceMinusBuyMax, doneOnceMax - p);
 
     ans = Math.max(ans, doneOnceMinusBuyMax + p);
