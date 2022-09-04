@@ -19,10 +19,12 @@
 function test() {
   console.log(1);
 }
+
 test.toString = function () {
   console.log("调用了valueOf方法");
   return 2;
 };
+
 function add() {
   var arr = Array.prototype.slice.call(arguments);
   const _adder = function () {
@@ -34,6 +36,7 @@ function add() {
   };
   return _adder;
 }
+
 let res = add(1)(2)(3, 4);
 console.log(add(1)(2, 3).valueOf());
 console.log(res + 0);

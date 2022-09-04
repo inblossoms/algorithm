@@ -5,17 +5,17 @@ String.prototype.indexOf();
 // fromIndex 默认值为 0
 
 // 解题思路：正则，字符串匹配
-function sIndexOf(str, searchStr, fromIndex = 0) {
+const IndexOf = (str, searchStr, fromIndex = 0) => {
   var regex = new RegExp(`${searchStr}`, "ig");
   regex.lastIndex = fromIndex;
   var result = regex.exec(str);
   return result ? result.index : -1;
-}
+};
 
 // 测试
 var paragraph =
   "The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?";
-var searchTerm = "dog";
+let searchTerm = "dog";
 // 测试一：不设置 fromIndex
 console.log(sIndexOf(paragraph, searchTerm));
 // 40
