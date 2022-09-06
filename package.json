@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Learn about data algorithms and structures",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "yarn dev"
   },
