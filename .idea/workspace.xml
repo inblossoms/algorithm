@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="5f9833e9-8666-4ec3-9132-e23d0489f654" name="Changes" comment="sort_algorithm - mergeSort" />
+=======
+    <list default="true" id="e8c5d1d8-b604-4659-a036-a77433ebd04e" name="Changes" comment="sort_algorithm - shellSort">
+      <change afterPath="$PROJECT_DIR$/剑指offer/tools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/剑指offer/sort_algorithm.js" beforeDir="false" afterPath="$PROJECT_DIR$/剑指offer/sort_algorithm.js" afterDir="false" />
+    </list>
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ChangesViewManager" show_ignored="true" />
+=======
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -45,6 +57,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -60,6 +73,23 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/DataStructure-Algorithm",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
   }
 }</component>
   <component name="RunManager">
@@ -97,7 +127,11 @@
       <workItem from="1662366819233" duration="14000" />
       <workItem from="1662366844414" duration="11307000" />
       <workItem from="1662431356241" duration="7895000" />
+<<<<<<< HEAD
       <workItem from="1662457576186" duration="12420000" />
+=======
+      <workItem from="1662457576186" duration="5352000" />
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
     </task>
     <task id="LOCAL-00001" summary="sort_algorithm - bubbleSort">
       <created>1662304717893</created>
@@ -120,6 +154,7 @@
       <option name="project" value="LOCAL" />
       <updated>1662387055815</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00004" summary="sort_algorithm - shellSort">
       <created>1662463501919</created>
       <option name="number" value="00004" />
@@ -135,6 +170,9 @@
       <updated>1662473780338</updated>
     </task>
     <option name="localTasksCounter" value="6" />
+=======
+    <option name="localTasksCounter" value="4" />
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +208,11 @@
     <MESSAGE value="sort_algorithm - bubbleSort" />
     <MESSAGE value="sort_algorithm - insertSort" />
     <MESSAGE value="sort_algorithm - shellSort" />
+<<<<<<< HEAD
     <MESSAGE value="sort_algorithm - mergeSort" />
     <option name="LAST_COMMIT_MESSAGE" value="sort_algorithm - mergeSort" />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="sort_algorithm - shellSort" />
+>>>>>>> 691dc50c57ce4410478061a714e00c66daf448f6
   </component>
 </project>
