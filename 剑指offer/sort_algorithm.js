@@ -14,9 +14,9 @@ let arr = [1, 33, 43, 12, 2, 21, 324, 0, 12];
 function bubbleSort(arr) {
   if (arr == null || arr.length <= 1) return;
 
-  const len = arr.length;
-  for (let i = 0; i < len - 1; i++) {
-    for (let j = 0; j < len - 1 - i; j++) {
+  const node = arr.length;
+  for (let i = 0; i < node - 1; i++) {
+    for (let j = 0; j < node - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
         swapTowValue(arr, j, j + 1);
       }
@@ -40,10 +40,10 @@ console.log('bubbleSort:', bubbleSort(arr));
 const selectionSort = (arr) => {
   if (arr == null || arr.length <= 1) return;
 
-  const len = arr.length;
-  for (let i = 0; i < len - 1; i++) {
+  const node = arr.length;
+  for (let i = 0; i < node - 1; i++) {
     let idx = i;
-    for (let j = i + 1; j < len; j++) {
+    for (let j = i + 1; j < node; j++) {
       if (arr[idx] > arr[j]) idx = j; // 找到从当前位置之后剩余数值中最小值的索引
     }
     swapTowValue(arr, i, idx);
@@ -65,9 +65,9 @@ console.log('selectionSort:', selectionSort(arr));
 const insertSort = (arr) => {
   if (arr == null || arr.length <= 1) return;
 
-  const len = arr.length;
+  const node = arr.length;
   let preIdx, current;
-  for (let i = 1; i < len; i++) {
+  for (let i = 1; i < node; i++) {
     preIdx = i - 1;
     current = arr[i];
     while (preIdx > 0 && current < arr[preIdx]) {
@@ -127,11 +127,11 @@ console.log('shellSort:', shellSort(arr));
  */
 
 const mergeSort = (arr) => {
-  let len = arr.length;
-  if (len < 2) return arr;
+  let node = arr.length;
+  if (node < 2) return arr;
 
   //  将数组进行拆分
-  let mid = Math.floor(len >> 1),
+  let mid = Math.floor(node >> 1),
     leftAry = arr.slice(0, mid),
     rightAry = arr.slice(mid);
   return merge(mergeSort(leftAry), mergeSort(rightAry)); // 每一次的拆分都进行一次合并
@@ -186,3 +186,55 @@ const quickSort = (arr) => {
 };
 
 console.log('quickSort：', quickSort(arr));
+
+/**
+ * 堆排序：分为大顶堆和小顶堆，每个节点的值都大于等于或小于等于其子节点的值，在堆排序中用于升降排序。
+ * 平均时间复杂度：O(n log n)
+ * 最好情况：O(n log n)
+ * 最坏情况：O(n log n)
+ * 空间复杂度：O(1)
+ * 排序方式：in-place
+ * 稳定性：不稳定
+ */
+
+const heapSort = (tree) => {
+  let node = tree.length
+
+  // 进行堆调整
+  function heapify(tree, i) {
+    let l = 2 * i + 1, r = 2 * i + 2, largest = i;
+    if (l < node && tree[largest] < tree[l]) {
+      largest = l
+    }      // l < node 保证子节点不会越界，超出树形的最大长度
+    if (r < node && tree[largest] < tree[r]) {
+      largest = r
+    }      // 与左节点同理
+    if (largest !== i) {
+      swapTowValue(tree, i, largest)     // 如果当前 largest即最大节点 大于当前父节点 i， 则交换两数值，使得顶堆保持成立
+      heapify(tree, i)     // 继续对堆结构进行堆调整
+    }
+  }
+
+  // 构建对结构： 需要保证的是（以大顶堆为例）：每个堆的父节点大于等于其子节点，所以需要从整个树形结构的最底层堆开始
+  // 每一个父节点都是连续的 所以我们在最底层的父节点基础上递减则可以堆整个树形进行 堆构建
+  function buildHeap(tree) {
+    for (let i = Math.floor(node >> 1); i >= 0; i--) {
+      heapify(tree, i)
+    } // 该循环的 i 值既是最底层堆的父节点
+  }
+
+  buildHeap(tree)
+  // console.log(tree)
+
+  // 进行堆排序：由于堆顶是最大（最小）值，所以可以将堆顶和树形尾端值进行交换截取
+  for (let i = node - 1; i >= 0; i--) {
+    swapTowValue(tree, 0, i)
+    node--
+    heapify(tree, 0)
+  }
+
+  return tree
+}
+
+let ary = [18, 52, 13, 84, 23, 23, 53, 76, 28, 76, 25, 34, 32, 21, 123]
+console.log(heapSort(ary))
