@@ -85,7 +85,7 @@ console.log('insertSort:', insertSort(arr));
  * 希尔排序：先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录"基本有序"时，
  *         再对全体记录进行依次直接插入排序。
  * 平均时间复杂度：O(n log n)
- * 最好情况：O(n log^2 n)
+ * 最好情况：O(n ^ 1.3)
  * 最坏情况：O(n log^2 n)
  * 空间复杂度：O(1)
  * 排序方式：in-place
@@ -278,12 +278,59 @@ let countArr = [1, 2, 2, 3, 4, 5, 1, 5, 6, 5, 6, 6, 7, 6, 8, 8, 4, 0]
 console.log('countingSort：', countingSort(countArr))
 
 
+/**
+ * 基数排序：将整数按位数切割成不同的数字，然后按每个位数分别比较。
+ * 平均时间复杂度：O(n * k)
+ * 最好情况：O(n * k)
+ * 最坏情况：O(n * k)
+ * 空间复杂度：O(n + k)
+ * 排序方式：out-place
+ * 稳定性：稳定
+ */
 
+const radixSort = (arr) => {
+  const maxNumber = Math.max(...arr)
+  const maxDigit = determiningTheNumberOfDigits(maxNumber)
 
+  let len = arr.length,
+    bucket = []
+  // retAry = []
 
+  for (let i = 0; i < maxDigit; i++) {
+    let base = Math.pow(10, i)     // 基数
 
+    for (let j = 0; j < len; j++) {
+      // 根据键值的每位数字来分配桶：对键值以逆序的方式进行排序
+      let n = arr[j] / base
+      let num = parseInt(n.toString()) % 10
+      // 以数组的方式 将排序后的键值进行存储
+      if (!bucket[num]) bucket[num] = []
+      bucket[num].push(arr[j])
+    }
 
+    let pos = 0
+    for (let j = 0; j < 10; j++) {
+      let v = null  // 作为 桶中子元素 的临时变量
+      // while 循环对桶中的每一组子数组元素进行排序处理
+      if (bucket[j] != null) while ((v = bucket[j].shift())) arr[pos++] = v
+    }
+  }
 
+  return arr
+}
+
+//  确定数字位数
+const determiningTheNumberOfDigits = (n) => {
+  let count = 0;
+  while (n >= 1) {
+    n /= 10
+    count++
+  }
+  return count
+}
+
+const Ary = [21, 123, 52, 46, 176, 89, 76, 90, 211, 432]
+console.log('radixSort：', radixSort(Ary))
 
 
 
