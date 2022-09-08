@@ -237,4 +237,60 @@ const heapSort = (tree) => {
 }
 
 let ary = [18, 52, 13, 84, 23, 23, 53, 76, 28, 76, 25, 34, 32, 21, 123]
-console.log(heapSort(ary))
+console.log('heapSort：', heapSort(ary))
+
+
+/**
+ * 计数排序：一种非比较排序，桶排序思想中的一种，适用于特定问题（小范围）
+ * 平均时间复杂度：O(n + k)
+ * 最好情况：O(n + k)
+ * 最坏情况：O(n + k)
+ * 空间复杂度：O(k)
+ * 排序方式：out-place
+ * 稳定性：稳定
+ */
+const countingSort = (arr) => {
+//  1. 构建桶
+  let bucketLen = Math.max(...arr) - Math.min(...arr) + 1,
+    bucket = new Array(bucketLen),
+    len = arr.length,
+    retArr = [];
+//  2. 记录数组中每一个参数出现的次数，统计数组中每个值为i的元素的出现次数，存入桶中的第i项
+  for (let i = 0; i < len; i++) {
+    if (!bucket[arr[i]]) {
+      bucket[arr[i]] = 0
+    }
+    bucket[arr[i]]++
+  }
+//  3. 对所有桶中的计数值进行累加
+  for (let i = 1; i < bucketLen; i++) {
+    bucket[i] = bucket[i] + bucket[i - 1]     // 此时bucket作为累加数组：从bucket中的第一个元素开始，每一项与其前一项进行相加
+  }
+//  4. 反向填充数组：这样保证了相同元素在原数组中的相对位置，此时的bucket的每一个值都是其所对应技术目标所出现的最后索引位置（这里的目标对应的是原数组中的元素，值为元素出现的次数）
+  for (let i = len - 1; i >= 0; i--) {
+    retArr[--bucket[arr[i]]] = arr[i]       // 将每个元素i放在新数组的第bucket(i)项，每放一个元素就将bucket(i)减去1
+  }
+
+  return retArr
+}
+
+let countArr = [1, 2, 2, 3, 4, 5, 1, 5, 6, 5, 6, 6, 7, 6, 8, 8, 4, 0]
+console.log('countingSort：', countingSort(countArr))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
