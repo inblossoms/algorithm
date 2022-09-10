@@ -57,7 +57,7 @@ arr.forEach((item) => {
 	res ^= item
 })//  异或运算的第三条
 
-let onlyOne = 0 // res`
+let onlyOne = 0 // res
 let rightOne = res & (~res + 1) // 提取出最右位的1
 
 for (const cur of arr) {
@@ -66,7 +66,7 @@ for (const cur of arr) {
 	}
 }
 
-return [res, onlyOne]
+// return [res, onlyOne]
 
 /**
  * 	通过res ^ 到最后 res = a ^ b
@@ -128,7 +128,7 @@ console.log(insertionSort(array))
  * 	3. 对两个方法进行测试
  * 	4. 不一致，对样本进行干预，对方法进行修改
  * 	5. 当通过率为百分百时，可以确认方法正确
-*/ 
+*/
 
 
 // 选择、排序、冒泡：都是O(N^2)
