@@ -101,3 +101,41 @@ console.time('time')
 backtracking_optimization(4, 2, 1)
 console.timeEnd('time')
 console.log(ret)
+
+
+// 给你一个 无重复元素 的整数数组candidates 和一个目标整数target，找出candidates中可以使数字和为目标数target 的 所有不同组合，并以列表形式返回。
+// 你可以按任意顺序 返回这些组合。
+// candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
+
+// 示例：
+// 输入：candidates = [2,3,6,7], target = 7
+// 输出：[[2,2,3],[7]]
+// 解释：
+// 2 和 3 可以形成一组候选，2 + 2 + 3 = 7 。注意 2 可以使用多次。
+// 7 也是一个候选， 7 = 7 。
+// 仅有这两种组合。
+
+const combinationSum = (candidates, target) => {
+  const ret = [], path = []
+  candidates.sort()
+  backtracking(0, 0)
+  return ret
+
+  function backtracking(j, sum) {
+    if (sum > target) return    // 如果已经大于规定的求和目标值 返回
+    if (sum === target) {
+      ret.push([...path])   // 将符合目标值的组合推进结果集中
+      return;
+    }
+    for (let i = j; i < candidates.length && sum + candidates[i] <= target; i++) {  //sum + candidates[i] <= target ；当大于target时，就没有必要再向后查找了（在一开始我们做了排序操作，所以当和较小值组合已经大于目标值，则之后的参数已经没有必要再进行一个组合测试）
+      const n = candidates[i]
+      if (n > target - sum) continue;
+      path.push(n)
+      sum += n
+      backtracking(i, sum)
+      path.pop()
+      sum -= n
+    }
+  }
+}
+console.log('combinationSum：', combinationSum([2, 3, 6, 7], 9))
