@@ -139,3 +139,49 @@ const combinationSum = (candidates, target) => {
   }
 }
 console.log('combinationSum：', combinationSum([2, 3, 6, 7], 9))
+
+
+// 给定一个字符串 string，需将 string 分割成一些字串，使每一个字串都是回文串且返回所有可能的分割方// 例一：
+// 输入：s = "aab"
+// 输出：[["a","a","b"],["aa","b"]]
+
+const solution = (str) => {
+
+  let result = [], path = []
+
+
+  function isPalindrome(str, startIndex, end) {
+    for (let i = startIndex, j = end; i < j; i++, j--) {
+      if (str.charAt(i) !== str.charAt(j)) {
+        return false;
+      }
+    }
+    return true
+  }
+
+  const backtracking = (str, startIndex) => {
+    //  如果起始位置大于str的大小，说明找到了一组分割方案
+    if (startIndex >= str.length) {
+      result.push([...path])
+      return
+    }
+
+    for (let i = startIndex; i < str.length; i++) {
+      //  将满足回文串要求的字符串收集
+      if (isPalindrome(str, startIndex, i)) {
+        let s = str.substring(startIndex, i + 1)
+        path.push(s)
+      } else {
+        continue
+      }
+      //  起始位置后移 保证数字不被重复切割
+      backtracking(str, i + 1)
+      path.pop()
+      return
+    }
+  }
+  backtracking(str, 0)
+  return result
+}
+let str = 'aab'
+console.log(solution(str))
