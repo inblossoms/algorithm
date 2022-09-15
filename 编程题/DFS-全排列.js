@@ -141,7 +141,8 @@ const combinationSum = (candidates, target) => {
 console.log('combinationSum：', combinationSum([2, 3, 6, 7], 9))
 
 
-// 给定一个字符串 string，需将 string 分割成一些字串，使每一个字串都是回文串且返回所有可能的分割方// 例一：
+// 给定一个字符串 string，需将 string 分割成一些字串，使每一个字串都是回文串且返回所有可能的分割方式
+// 例一：
 // 输入：s = "aab"
 // 输出：[["a","a","b"],["aa","b"]]
 
