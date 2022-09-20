@@ -9,20 +9,22 @@
 // 解释：子数组 [4,3] 是该条件下的长度最小的子数组。
 
 const minimumLengthSubarray = (nums, target) => {
-  const len = nums.length
-  let lf, rt, sum,
-    retLen = Infinity
-  lf = rt = sum = 0
-  while (rt < len) {   // 定义数组边界值
+  const len = nums.length;
+  let lf,
+    rt,
+    sum,
+    retLen = Infinity;
+  lf = rt = sum = 0;
+  while (rt < len) {
+    // 定义数组边界值
     sum += nums[rt++];
     while (sum >= target) {
-      retLen = retLen < rt - lf ? retLen : rt - lf;   // 选择最小长度子数组
-      sum -= nums[lf++];  // 缩小搜索范围
+      retLen = retLen < rt - lf ? retLen : rt - lf; // 选择最小长度子数组
+      sum -= nums[lf++]; // 缩小搜索范围
     }
   }
   return retLen > len ? 0 : retLen;
 };
 
-
-let nums = [2, 3, 1, 2, 4, 3]
+let nums = [2, 3, 1, 2, 4, 3];
 console.log(minimumLengthSubarray(nums, 7));
