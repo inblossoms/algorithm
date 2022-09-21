@@ -10,8 +10,8 @@ const threesum = (nums) => {
   nums.sort((v1, v2) => v1 - v2);
   if (nums[0] > 0) return;
   let len = nums.length,
-    lf = 0,
-    rt = len - 1,
+    lf,
+    rt,
     retArr = [];
 
   for (let i = 0; i < len; i++) {
@@ -25,10 +25,8 @@ const threesum = (nums) => {
         lf++, rt--; // 移动左右指针 搜集剩余符合条件的元素g
         while (nums[lf] === nums[lf - 1]) lf++; // 对做指针所指元素去重
         while (nums[rt] === nums[rt + 1]) rt--;
-      } else if (sum > 0) {
-        rt--;
       } else {
-        lf++;
+        sum > 0 ? rt-- : lf++;
       }
     }
   }
