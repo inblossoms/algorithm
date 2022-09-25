@@ -3,5 +3,38 @@
 	// Hover to view descriptions of existing attributes.
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
-	"configurations": []
+	"configurations": [
+		{
+			// 项目自定义名称，用于调试选用
+			"name": "Launch Chrome",
+			// 调试模式启动浏览器，访问某个url 然后对其进行调试 
+			"request": "launch",
+			// 切换调试所使用的浏览器，可以是stable（chrome）、canary 或自定义浏览器
+			"runtimeExecutable": "canary",
+			// user data dir 保存用户数据的地址（浏览器历史、cookie等），一个数据木只能跑一个chrome，所以默认会临时创建用户数据目录，想用默认目录可以把这个配置修改为 false
+			"userDataDir": false,
+			"type": "chrome",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}",
+			// "runtimeArgs": [
+			// 	"--auto-open-devtools-for-tabs"，// 每次打开网页都默认调起 chrome devtools，以下是启动参数
+			// 	"--incognito" // 无痕模式
+			// ],
+			// "file": "${workspaceFolder}/index.html", // 指定调试文件
+			// 把调试文件 sourcemap 到的路径映射到本地的文件，使调试的代码不只读
+			"sourceMapPathOverrides": {
+				// 分别把 meteor、webpack 开头的path映射到本地目录
+				"meteor://💻app/*": "${workspaceFolder}/*",
+				"webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+				"webpack://?:*/*": "${workspaceFolder}/*"
+			}
+		},
+		{
+			"name": "Attach to Chrome",
+			"port": 9222,
+			"request": "attach", // 连接某个已经在调试模式启动的url进行调试
+			"type": "chrome",
+			"webRoot": "${workspaceFolder}"
+		}
+	]
 }
