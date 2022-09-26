@@ -1,4 +1,4 @@
-import { less, swapTowValue } from ".././tools.js";
+import { less, swapTowValue } from "../Utils/tools.js";
 
 let arr = [1, 33, 43, 12, 2, 21, 324, 0, 12];
 
