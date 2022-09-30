@@ -6,7 +6,7 @@
 	"configurations": [
 		{
 			// 项目自定义名称，用于调试选用
-			"name": "Native debugging",
+			"name": "chrome debuger",
 			// 调试模式启动浏览器，访问某个url 然后对其进行调试 
 			"request": "launch",
 			// 切换调试所使用的浏览器，可以是stable（chrome）、canary 或自定义浏览器
@@ -30,7 +30,7 @@
 			}
 		},
 		{
-			"name": "Parallel debugging",
+			"name": "chrome MTd",
 			"port": 9222,
 			"request": "attach", // 连接某个已经在调试模式启动的url进行调试
 			"type": "chrome",
