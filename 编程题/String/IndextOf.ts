@@ -6,14 +6,12 @@
 function IndexOf(haystack: string, needle: string): number {
   function getNext(str: string): number[] {
     let next: number[] = [],
-      j: number = 0;
+      j: number = 0; // 前缀末尾的位置，同时也是后缀末尾之前包括末尾的位置的最大相等前后缀
     next[0] = j;
 
     for (let i = 1, length = str.length; i < length; i++) {
       while (j > 0 && str[i] !== str[j]) j = next[j - 1];
-
       if (str[i] === str[j]) j++;
-
       next[i] = j;
     }
 
@@ -27,11 +25,12 @@ function IndexOf(haystack: string, needle: string): number {
   for (let i = 0, length = haystack.length; i < length; i++) {
     while (j > 0 && haystack[i] !== needle[j]) j = next[j - 1];
     if (haystack[i] === needle[j]) {
-      if (j === needle.length - 1) return i - j;
+      if (j === needle.length - 1) return i - j; // lo 在 hello 的 4 - 2 的位置，返回索引 2
       j++;
     }
   }
+
   return -1;
 }
 
-console.log(strStr("hello", "lo"));
+console.log(IndexOf("hello", "lo"));
