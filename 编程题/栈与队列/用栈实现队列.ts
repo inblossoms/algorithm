@@ -1,5 +1,10 @@
-// 力扣：232
-// 说明：使用两个栈实现先入先出队列。队列需支持一般队列的所有操作（push、pop、peek、empty）
+/**
+ * 说明：使用两个栈实现先入先出队列。
+ * push: 将元素放入队列的尾部
+ * pop: 从队列首部移除元素
+ * peek: 返回队列首部的元素
+ * empty: 返回队列是否为空
+ */
 
 class MyQueue {
   private stackIn: number[];
