@@ -5,17 +5,6 @@
  * 3. 确定单层递归的逻辑
  */
 
-class TreeNode {
-  val: number;
-  left: TreeNode | null;
-  right: TreeNode | null;
-  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-    this.val = val === undefined ? 0 : val;
-    this.left = left === undefined ? null : left;
-    this.right = right === undefined ? null : right;
-  }
-}
-
 // 前序排列：中左右
 function preorderTraversal(node: TreeNode | null): number[] {
   const traverse = (node: TreeNode | null, res: number[]): void => {
