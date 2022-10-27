@@ -2,7 +2,9 @@
 function inorderTraversal(root: TreeNode | null): number[] {
   let helperStack: TreeNode[] = [];
   let res: number[] = [];
+
   if (root === null) return res;
+
   let curNode: TreeNode | null = root;
   while (curNode !== null || helperStack.length > 0) {
     if (curNode !== null) {
@@ -14,5 +16,6 @@ function inorderTraversal(root: TreeNode | null): number[] {
       curNode = curNode.right;
     }
   }
+
   return res;
 }
